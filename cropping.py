@@ -20,11 +20,9 @@ threshold = 150
 cv2.namedWindow('before', cv2.WINDOW_KEEPRATIO)
 cv2.namedWindow('after', cv2.WINDOW_KEEPRATIO)
 
-image_name = r'C:\Users\szymo\Desktop\ZPI - AOI\Outsource\data\boards\plytka1_bal.jpg'
-imageCropped_name = r'C:\Users\szymo\Desktop\ZPI - AOI\Outsource\data\boards\plytka1_bal_cro.jpg'
+image_name = r'wbal_1.jpg'
+imageCropped_name = r'crop_1.jpg'
 
-image_name = r'C:\Users\szymo\Desktop\ZPI - AOI\Outsource\data\boards\zla2_bal.jpg'
-imageCropped_name = r'C:\Users\szymo\Desktop\ZPI - AOI\Outsource\data\boards\zla2_bal_cro.jpg'
 
 
 #read image from file

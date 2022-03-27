@@ -38,6 +38,7 @@ def loadReferenceBrd(name):
   
     
 def getSubImage(img, roi, nullpoint):
+
     return img[nullpoint[1]:nullpoint[1]+roi[1], nullpoint[0]:nullpoint[0]+roi[0]]
     
 def getEucleidianDist(XYpos1, XYpos2):
@@ -83,7 +84,7 @@ def segment(image, foregroundMarkers, backgroundMarkers):
 def getPosAndRot(segmentedImage, nullpoint):
     position = 0
     rotation = 0
-    _, contours, _ = cv2.findContours(segmentedImage, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    contours, _ = cv2.findContours(segmentedImage, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     if(contours):
         contours = sorted(contours, key = cv2.contourArea, reverse = True)[:10]
     
@@ -203,8 +204,12 @@ def boardCheck():
             circles = cv2.HoughCircles(imgGrey,cv2.HOUGH_GRADIENT,1,50,
                             param1=100,param2=60,minRadius=10,maxRadius=100)
 
-            circles = np.uint16(np.around(circles))
-            if (not circles): 
+            if type(circles) == np.array:
+                if circles.any != None:
+                    circles = np.uint16(np.round(circles))
+            else:
+                circles = np.uint16([])
+            if (not circles.all()):
                 for color in clib.polarityKeys:
                     mask = thresholdByColor(img, color)
                     magnitude = cv2.countNonZero(mask)
@@ -229,13 +234,13 @@ def boardCheck():
 if __name__ == "__main__":
     #set image path
     #imageName = 'insert_path_to_image.jpg'
-    imageName = 'ref_board.jpg'
+    imageName = 'crop_2.jpg'
     loadImage(imageName)
 
     #filtering
     imageFiltered = lib.filter_bilateral(image)
     
-    name = "ref_board"
+    name = "my_board"
     #name = "NX_board"
     reference = loadReferenceBrd(name)
     

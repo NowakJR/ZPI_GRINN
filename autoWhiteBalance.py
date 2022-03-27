@@ -19,11 +19,9 @@ from time import sleep
 cv2.namedWindow('before', cv2.WINDOW_NORMAL)
 cv2.namedWindow('after', cv2.WINDOW_NORMAL)
 
-image_name = r'C:\Users\szymo\Desktop\ZPI - AOI\Outsource\data\boards\plytka1.jpg' #Insert_path_to_calibrated_image/calibrated.jpg'
-imageBalanced_name = r'C:\Users\szymo\Desktop\ZPI - AOI\Outsource\data\boards\plytka1_bal.jpg' #Insert_path_for_saving/balanced.jpg'
+image_name = r'Obciete_1.jpg' #Insert_path_to_calibrated_image/calibrated.jpg'
+imageBalanced_name = r'wbal_1.jpg' #Insert_path_for_saving/balanced.jpg'
 
-image_name = r'C:\Users\szymo\Desktop\ZPI - AOI\Outsource\data\boards\dobra2.jpg'
-imageBalanced_name =r'C:\Users\szymo\Desktop\ZPI - AOI\Outsource\data\boards\dobra2_bal.jpg'
 
 
 def apply_mask(matrix, mask, fill_value):

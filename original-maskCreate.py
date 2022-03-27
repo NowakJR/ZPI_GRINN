@@ -29,7 +29,7 @@ image = None
 imageOrig = None
 
 
-imagePath = r'C:\Users\szymo\Desktop\ZPI - AOI\Outsource\data\boards\dobra2_bal_cro.jpg'
+imagePath = r'crop_1.jpg'
 
 
 # mouse callback function
